@@ -8,7 +8,7 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
     {
         #region Factory
 
-        public class Factory : PlaceholderFactory<Vector2 ,Asteroid>
+        public class AsteroidFactory : PlaceholderFactory<Vector2 ,Asteroid>
         {
             
         }
@@ -16,9 +16,6 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
         #endregion
         
         #region Editor
-
-        [SerializeField]
-        private Transform _bodyTransform;
 
         [SerializeField]
         private Rigidbody2D _rigidbody2D;

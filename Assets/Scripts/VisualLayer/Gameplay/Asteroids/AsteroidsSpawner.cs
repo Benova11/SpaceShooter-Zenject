@@ -7,7 +7,7 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
     public class AsteroidsSpawner : IInitializable
     {
         [Inject]
-        private Asteroid.Factory _factory;
+        private Asteroid.AsteroidFactory _asteroidFactory;
         
         public async void Initialize()
         {
@@ -15,7 +15,7 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
             {
                 
                 await UniTask.Delay(1000);
-                var ast = _factory.Create(new Vector2(Random.Range(-13,0) , 8 ));
+                var ast = _asteroidFactory.Create(new Vector2(Random.Range(-13,0) , 8 ));
             }
         }
     }
