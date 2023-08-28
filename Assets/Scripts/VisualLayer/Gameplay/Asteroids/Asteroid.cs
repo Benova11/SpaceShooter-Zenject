@@ -8,14 +8,14 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
     {
         #region Factory
 
-        public class Factory : PlaceholderFactory<Asteroid>
+        public class Factory : PlaceholderFactory<Vector2 ,Asteroid>
         {
             
         }
 
         #endregion
         
-        #region Injects
+        #region Editor
 
         [SerializeField]
         private Transform _bodyTransform;
@@ -24,11 +24,24 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
         private Rigidbody2D _rigidbody2D;
 
         #endregion
+        
+        #region Fields
+
+        private Vector2 _launchingPosition;
+        
+        #endregion
 
         #region Methods
 
+        [Inject]
+        private void Construct(Vector2 launchingPosition)
+        {
+            _launchingPosition = launchingPosition;
+        }
+        
         private void Start()
         {
+            _rigidbody2D.transform.position = _launchingPosition;
             _rigidbody2D.AddForce(new Vector2(Random.Range(5, 10), -10) * 1000, ForceMode2D.Force);
             _rigidbody2D.AddTorque(Random.Range(2000, 10000));
         }

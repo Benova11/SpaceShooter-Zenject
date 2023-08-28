@@ -17,7 +17,7 @@ namespace Scrips.VisualLayer.Gameplay.Installers
             Container.Bind<IPlayerInput>().To<PlayerKeyboardInput>().AsSingle();
             
             Container
-                .BindFactory<Asteroid, Asteroid.Factory>()
+                .BindFactory<Vector2, Asteroid, Asteroid.Factory>()
                 .FromComponentInNewPrefab(_asteroidPrefab)
                 .AsSingle();
         }

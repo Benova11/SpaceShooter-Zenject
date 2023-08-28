@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using Zenject;
 
 namespace Scripts.VisualLayer.Gameplay.Asteroids
@@ -10,10 +11,11 @@ namespace Scripts.VisualLayer.Gameplay.Asteroids
         
         public async void Initialize()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 30; i++)
             {
+                
                 await UniTask.Delay(1000);
-                var ast = _factory.Create();
+                var ast = _factory.Create(new Vector2(Random.Range(-13,0) , 8 ));
             }
         }
     }
